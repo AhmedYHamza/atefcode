@@ -14,7 +14,7 @@ host = '0.0.0.0'  # Get local machine name
 port = int(os.environ.get("PORT", 5000))  # Reserve a port for your service.
 
 s.bind((host, port))  # Bind to the port
-s.listen(5)  # Now wait for client connection.
+s.listen(120)  # Now wait for client connection.
 
 print('Server listening....')
 

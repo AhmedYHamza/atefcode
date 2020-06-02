@@ -1,5 +1,7 @@
 import socket  # Import socket module
 import os
+from flask import Flask
+import requests
 
 username = ["Mohamed", "Ahmed"]
 password = ["01234", "56789"]
@@ -12,7 +14,7 @@ BUFFER_SIZE = 4096
 s = socket.socket()  # Create a socket object
 host = '0.0.0.0'  # Get local machine name
 port = int(os.environ.get("PORT", 5000))  # Reserve a port for your service.
-
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((host, port))  # Bind to the port
 s.listen(120)  # Now wait for client connection.
 
@@ -46,3 +48,10 @@ while True:
         f.close()
         print('Done sending')
     conn.close()
+app = Flask(__name__)
+@app.route("/")
+def hello_world():
+    print(requests.get('0.0.0.0'))
+    return requests.get('0.0.0.0')
+if __name__ == '__main__':
+    flaskapp.run(debug=True)

@@ -11,7 +11,7 @@ BUFFER_SIZE = 4096
 
 s = socket.socket()  # Create a socket object
 host = '0.0.0.0'  # Get local machine name
-port = = int(os.environ.get("PORT", 5000))  # Reserve a port for your service.
+port = int(os.environ.get("PORT", 5000))  # Reserve a port for your service.
 
 s.bind((host, port))  # Bind to the port
 s.listen(5)  # Now wait for client connection.

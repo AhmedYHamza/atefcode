@@ -10,8 +10,8 @@ authenflag = '0'
 BUFFER_SIZE = 4096
 
 s = socket.socket()  # Create a socket object
-host = socket.gethostname()  # Get local machine name
-port = 60000  # Reserve a port for your service.
+host = '0.0.0.0'  # Get local machine name
+port = = int(os.environ.get("PORT", 5000))  # Reserve a port for your service.
 
 s.bind((host, port))  # Bind to the port
 s.listen(5)  # Now wait for client connection.
